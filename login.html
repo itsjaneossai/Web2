@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Landing Page</title>
+    <style>
+        .error {color: red;}
+        .success {color: green;}
+    </style>
+</head>
+<body style="background-image: url('reflection-polyscape-wallpaper-for-1600x900-65-1085.jpg');">
+    <form id="form">
+        <fieldset>
+            <legend>Personal details</legend>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="uname"  minlength="8" maxlength="16" required>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="pword" minlength="12" maxlength="16" required>
+
+       <button type="submit">Login</button> 
+       <button type="reset">Reset</button>
+       <p id="message"></p> 
+    </fieldset>
+    </form>
+    <script>
+      document.getElementById('form').addEventListener('submit', function(event) {
+       event.preventDefault();
+
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let message = document.getElementById('message');
+    
+        if (username.length < 8 || username.length > 16) {
+            message.textContent = "Username must be between 8 and 16 characters.";
+            message.className = "error";
+            return;
+        }
+
+        if (password.length < 12 || password.length > 16) {
+            message.textContent = "Password must be between 12 and 16 characters.";
+            message.className = "error";
+            return;
+        }
+
+        message.textContent = "Login successful!";
+        message.className = "success";
+    });
+</script>
+
+</body>
+</html>
